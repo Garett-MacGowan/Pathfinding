@@ -9,12 +9,12 @@ gridRead() function:
 - 0 indexed grid system is fine in this instance
 - Keep information regarding which file is read, it could be "pathfinding_a.txt" or "pathfinding_b.txt". This is necessary for writeSolution() because output files will be named and handled differently based on input files.
 
-mannHeur() heuristic function (manhattan):
+mannHeuristic() heuristic function (manhattan):
 - Takes two points p1, p2 and computes manhattan distance
 - Used for grids read from pathfinding_a.txt
 - This is the most informed heuristic for grids that allow only 4 directions of movement
 
-chebHeur() heuristic function (chebyshev):
+chebHeuristic() heuristic function (chebyshev):
 - Takes two points p1, p2 and computes chebyshev distance
 - Used for grids read from pathfinding_b.txt
 - This is the most informed heuristic for grids that allow 8 directions of movement
@@ -30,7 +30,7 @@ aStar() function:
 visualizer() function:
 - Prints the grid to the screen
 
-writeSolution():
+writeSolutions():
 - First line in output is algorithm used (Greedy or A*)
 - Place a blank line between successive solutions to different input grids (but not between the two algorithms used on a single grid)
-
+- pathfinding_a_out.txt and pathfinding_b_out.txt are the two output files for the two schemes.
