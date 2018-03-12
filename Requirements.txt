@@ -1,0 +1,36 @@
+pathfinding.py
+
+main():
+- Manages helper functions to read and output solutions 
+
+gridRead() function:
+- Reads a m x n grid (m|8<=m<=1024 and n|8<=n<=1024)
+- Should be in the form of a 2D list where first dimension represents row, second dimension represents column
+- 0 indexed grid system is fine in this instance
+- Keep information regarding which file is read, it could be "pathfinding_a.txt" or "pathfinding_b.txt". This is necessary for writeSolution() because output files will be named and handled differently based on input files.
+
+mannHeur() heuristic function (manhattan):
+- Takes two points p1, p2 and computes manhattan distance
+- Used for grids read from pathfinding_a.txt
+- This is the most informed heuristic for grids that allow only 4 directions of movement
+
+chebHeur() heuristic function (chebyshev):
+- Takes two points p1, p2 and computes chebyshev distance
+- Used for grids read from pathfinding_b.txt
+- This is the most informed heuristic for grids that allow 8 directions of movement
+
+greedy() function:
+- Greedy search for best path
+- Essentially A*, but only uses heuristic to evaluate paths
+
+aStar() function:
+- A* search for best path
+- Uses heuristic cost and cost so far to determine best path
+
+visualizer() function:
+- Prints the grid to the screen
+
+writeSolution():
+- First line in output is algorithm used (Greedy or A*)
+- Place a blank line between successive solutions to different input grids (but not between the two algorithms used on a single grid)
+
