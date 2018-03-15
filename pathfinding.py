@@ -10,8 +10,6 @@ def main():
     pathSolutionsA = solutionHandler(pathProblemsA, pathStartEndA, "A")
     pathSolutionsB = solutionHandler(pathProblemsB, pathStartEndB, "B")
 
-    cleanFiles("pathfinding_a_out.txt")
-    cleanFiles("pathfinding_b_out.txt")
     writeSolutions("pathfinding_a_out.txt", pathSolutionsA)
     writeSolutions("pathfinding_b_out.txt", pathSolutionsB)
 
@@ -189,7 +187,7 @@ def drawSolutionPath(solution, grid):
     return grid
 
 def solutionHandler(pathProblems, pathStartEnd, pType):
-    # pathSolutions are in the form [(board, algorithm), (board, alg), ...]
+    # pathSolutions are in the form [[(board, algorithm), (board, alg), ...], [another problem], ...]
     # This is so that the grids can be updated to reflect the solution cleanly.
     pathSolutions = []
     currentProblem = []
@@ -209,7 +207,7 @@ def solutionHandler(pathProblems, pathStartEnd, pType):
 
 def writeSolutions(fileName, pathSolutions):
     try:
-        file = open(fileName, 'a')
+        file = open(fileName, 'w')
     except IOError:
         print("Cannot open " + fileName)
     else:
@@ -220,14 +218,7 @@ def writeSolutions(fileName, pathSolutions):
                     row = ''.join(item[0][i])
                     file.write(row + '\n')
             file.write('\n')
-
-def cleanFiles(fileName):
-    try:
-        f = open(fileName, 'w')
-    except IOError:
-        print("Cannot open " + fileName)
-    else:
-        f.close()
+    file.close()
 
 def visualizer(grid):
     for row in grid:
